@@ -1,0 +1,20 @@
+{
+  "name": "14-unit",
+  "version": "1.0.0",
+  "description": "There are **3 parts** to this homework. The homework is only complete if **all** parts are submitted.",
+  "main": "server.js",
+  "dependencies": {
+    "config.json": "0.0.4",
+    "express": "^4.16.4",
+    "node": "^11.1.0",
+    "pg": "^7.6.1",
+    "sequelize": "^4.41.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

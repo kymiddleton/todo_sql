@@ -1,0 +1,71 @@
+body {
+    height: 100vh;
+    display: block;
+    font-family: 'Roboto', sans-serif;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: transparent;
+    opacity: 1;
+    object-fit: contain;
+}
+
+.morning {
+    background-image: url("../public/images/chris-liu-beers-40853-unsplash.jpg");
+}
+
+.afternoon {
+    background-image: url("../public/images/sudhagar-shanmugasigamani-66397-unsplash.jpg");
+}
+
+.evening {
+    background-image: url("../public/images/shane-perry-11379-unsplash.jpg");
+}
+
+/* .background {
+    position: absolute;
+    width: 100%;
+    height: auto;   
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+} */
+
+input {
+position: absolute;
+background-color: rgba(232, 229, 229, 0.92);
+/* border: none;
+border-bottom: inset;
+border-color: rgb(172, 170, 170);
+border-width: 2.5px;
+width: 463px;
+height: 70px;
+font-size: 26px;
+
+opacity: 0.9;
+padding-top: 22px;
+margin-left: 35px; */
+} 
+
+.item {
+    position: relative;
+    padding: 10px;
+}
+
+.two {
+    position: absolute;
+    right: 0px;
+    width: 300px;
+    height: 690px;
+    background-color: rgba(232, 229, 229, 0.92);
+    text-align: left;
+    opacity: 0.9;
+    color: black;
+    border: none;
+    border-bottom: inset;
+    border-color: rgb(172, 170, 170);
+    border-width: 2.5px;
+}
+
