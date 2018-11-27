@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const db = require("../models");
 
 class RestfulAPI {
     constructor(resource, app, model) {
@@ -21,7 +21,10 @@ class RestfulAPI {
 
     create() {
         this.app.post(`/api/${this.resource}`, (req, res) => {
-            this.model.create(req.body)
+            this.model.create({
+                todoItem: req.body.text,
+                todoStatus: req.body.todoStatus
+            })
                 .then(function (data) {
                     res.json(data);
                 })
@@ -33,7 +36,11 @@ class RestfulAPI {
 
     delete(identifier) {
         this.app.delete(`/api/${this.resource}/:${identifier}`, (req, res) => {
-            this.model.findByIdAndRemove(req.params[identifier])
+            this.model.destroy({
+                where: {
+                    id: req.params[identifier]
+                }
+            })
                 .then(data => res.json({ success: true }))
                 .catch(err => res.json(err))
         });
@@ -41,13 +48,19 @@ class RestfulAPI {
 
     update(identifier) {
         this.app.post(`/api/${this.resource}/:${identifier}`, (req, res) => {
-            this.model.findOneAndUpdate({_id : req.params[identifier]}, { todoStatus: req.body.todoStatus }, { new: true })
+            this.model.update({
+                todoStatus: req.body.todoStatus
+            }, {
+                    where: {
+                        id: req.params[identifier]
+                    }
+                })
                 .then(function (dbTodo) {
                     console.log('---------In Rest Update-------');
                     res.json(dbTodo);
                 })
                 .catch(function (err) {
-                    console.log(err); 
+                    console.log(err);
                     res.json(err);
                 });
         });
