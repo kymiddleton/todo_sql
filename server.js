@@ -4,13 +4,15 @@ const path = require('path'); // Is path needed for SQL?
 const bodyParser = require('body-parser');
 // const mongoose = require('mongoose');
 const Sequelize = require('sequelize');
-const db = require("./app/models");
 
 // Initialize Express
 const app = express();
 
 // Sets the port for the server to listen on
 const PORT = process.env.PORT || 3000;
+
+// Requiring our models for syncing
+const db = require("./app/models");
 
 // Use body-parser for handling form submissions
 app.use(bodyParser.urlencoded({ extended: true }));
