@@ -12,6 +12,7 @@ $(function () {
             todoItem: $('#todo-input').val().trim(),
             todoStatus: false
         };
+        console.log(newTodo, "This is the new todo");
         if (newTodo.todoItem === '') {
             alert('Todo Item Required');
         }
@@ -31,10 +32,10 @@ $(function () {
     });
 });
 
-socket.on('emit-todo', function (data) {
-    console.log(data, "This is the new todo that is being emitted from the backend")
+ socket.on('emit-todo', function (data) {
+     console.log(data, "This is the new todo that is being emitted from the backend")
     populateList(data);
-});
+ });
 
 function populateList(data) {
     // event.preventDefault();
@@ -99,14 +100,16 @@ function addUpdateListener(element) {
 
 // socket.on('update-todo', function (data) {
 socket.on('emit-update', function (data) {
-    // console.log(data, "This is the updated todo being emitted from the backend")
+     console.log(data, "This is the updated todo being emitted from the backend")
     getAllItems();
 });
 
 function getAllItems() {
+    console.log("in get all items");
     $('#addTasks').empty();
     $.get('/api/todo', function (data) {
-        
+        console.log(data, "what is data");
+      if(data){
         data.forEach((e) => {
             const listTag = $('<li>');
             const textDiv = $('<div>');
@@ -136,6 +139,9 @@ function getAllItems() {
             $('#addTasks').append(listTag);
         });
         addDeleteListener();
+          
+      }
+        
     });
 }
 

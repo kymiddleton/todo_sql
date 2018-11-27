@@ -6,7 +6,7 @@ const db = require('../models');
 // // ROUTING
 module.exports = function (app) {
 
-    const todo = new ResfulAPI('todo', app, db.todo);
+    const todo = new ResfulAPI('todo', app, db.todo_table);
     todo.find();
     todo.create();
     todo.delete();

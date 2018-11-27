@@ -8,8 +8,10 @@ class RestfulAPI {
     }
 
     find() {
+        console.log("in find top");
         this.app.get(`/api/${this.resource}`, (req, res) => {
-            this.model.find({})
+            console.log("in find ", req.body);
+            this.model.findAll({})
                 .then(function (data) {
                     res.json(data);
                 })
@@ -21,8 +23,9 @@ class RestfulAPI {
 
     create() {
         this.app.post(`/api/${this.resource}`, (req, res) => {
+           
             this.model.create({
-                todoItem: req.body.text,
+                todoItem: req.body.todoItem,
                 todoStatus: req.body.todoStatus
             })
                 .then(function (data) {

@@ -34,12 +34,11 @@ require('./routes/html-routes.js')(app);
 // Socket.io Routes
 require('./sockets/todo-sockets')(io);
 
-// sequelize initialization
-const sequelize = new Sequelize("postgres://username:password@localhost:5432/dbname");
+
 
 // Starts the server to begin listening
 db.sequelize.sync({ force: false }).then(function () {
-    app.listen(PORT, function () {
+    server.listen(PORT, function () {
         console.log("App listening on PORT " + PORT);
     });
 }); 
