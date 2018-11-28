@@ -43,7 +43,8 @@ function populateList(data) {
     // data.forEach((data) => {
     const listTag = $('<li>');
     const textDiv = $('<div>');
-    const button = $('<i class="far fa-dot-circle">');//x for delete
+    const button = $('<i class="far fa-circle">');//x for delete
+    // const button = $('<i class="far fa-dot-circle">');//x for delete
     
     button.attr('data-status', data.todoStatus);
 
@@ -62,7 +63,8 @@ function populateList(data) {
     
 
     button.addClass('delete');
-    button.attr('data-id', data._id);
+    button.attr('data-id', data.id);
+    // button.attr('data-id', data._id);
 
     $('#addTasks').append(listTag);
 };
@@ -101,6 +103,7 @@ function addUpdateListener(element) {
         
         toggleCheckbox(this);
     })
+
 }
 
 // socket.on('update-todo', function (data) {
@@ -123,10 +126,12 @@ function getAllItems() {
                 button = $('<i class="far fa-dot-circle">');//checked completed
             } 
             else {
-                button = $('<i class="far fa-circle not complete">');//unchecked not completed
+                button = $('<i class="far fa-circle">');//unchecked not completed
+                // button = $('<i class="far fa-circle not complete">');//unchecked not completed
             }
 
-            button.attr('data-id', e._id);
+            button.attr('data-id', e.id);
+            // button.attr('data-id', e._id);
             button.attr('data-status', e.todoStatus);
 
             listTag.append();
@@ -144,7 +149,7 @@ function getAllItems() {
 
             $('#addTasks').append(listTag);
         });
-        addDeleteListener(); 
+        // addDeleteListener(); 
       }  
     });
 }
@@ -155,12 +160,11 @@ function addDeleteListener() {
     $(".delete").on('click', function () {
         console.log('in delete listener');
         const deleteThisId = {
-            
             id: $(this).attr('data-id'),
             status: $(this).attr('data-status')
         }
-        
-        if (deleteThisId.status === "true") {
+
+        if (deleteThisId.status === "false") {
             $.ajax({
                 url: `/api/todo/${deleteThisId.id}`,
                 method: "delete"
@@ -170,7 +174,7 @@ function addDeleteListener() {
             });
             
         } else {
-            status = false;
+            status = true;
         }
     });
 };
