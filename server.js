@@ -1,6 +1,6 @@
 // Dependencies
 const express = require('express');
-const path = require('path'); // Is path needed for SQL?
+const path = require('path');
 const bodyParser = require('body-parser'); 
 const Sequelize = require('sequelize'); //Should this be here or in the models index.js?
 

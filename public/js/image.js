@@ -8,6 +8,7 @@
  */
 
 const hours = new Date().getHours();
+console.log("Is this getting data");
 // const hours = 13;
 const morning = ('morning');
 const afternoon = ('afternoon');

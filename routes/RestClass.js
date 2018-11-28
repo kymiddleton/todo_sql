@@ -23,7 +23,6 @@ class RestfulAPI {
 
     create() {
         this.app.post(`/api/${this.resource}`, (req, res) => {
-           
             this.model.create({
                 todoItem: req.body.todoItem,
                 todoStatus: req.body.todoStatus

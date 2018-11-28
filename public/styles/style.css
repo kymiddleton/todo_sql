@@ -12,15 +12,15 @@ body {
 }
 
 .morning {
-    background-image: url("../public/images/chris-liu-beers-40853-unsplash.jpg");
+    background-image: url("/images/chris-liu-beers-40853-unsplash.jpg");
 }
 
 .afternoon {
-    background-image: url("../public/images/sudhagar-shanmugasigamani-66397-unsplash.jpg");
+    background-image: url("/images/sudhagar-shanmugasigamani-66397-unsplash.jpg");
 }
 
 .evening {
-    background-image: url("../public/images/shane-perry-11379-unsplash.jpg");
+    background-image: url("/images/shane-perry-11379-unsplash.jpg");
 }
 
 input {
@@ -39,7 +39,7 @@ input {
 
 .two {
     display: inline-block;
-    height: 670px;
+    height: 970px;
     margin-left: 140px;
     background-color: rgba(232, 229, 229, 0.92);
     text-align: center;
@@ -51,124 +51,105 @@ input {
     border-width: 2.5px;
 }
 
-/* .sidenav {
-    
-} */
-
-
-/* #header {
-    display: grid;
-    grid-template-columns: 1fr 455px;
-    grid-gap: 5px;
-    padding: 10px;
-    color: darkslategrey;
-    text-align: left;
-    margin-bottom: 10px;
-    margin-right: 15px;
-    margin-left: 15px;
-} */
-
-/* h1 {
-    font-size: 75px;
-    color: darkslategrey;
-    padding-left: 10px;
+.textDiv {
+    border: none;
+    border-bottom: inset;
+    border-color: rgb(201, 200, 200);
+    border-width: 2.5px;
 }
 
-h2 {
-    font-size: 75px;
-    color: darkslategrey;
-    padding-left: 35px;
-}
-
-p {
-    margin-top: 10px;
-} */
-
-/* .one {
-    display: block;
-    width: 100%;
-    height: auto;
-} */
-
-
-/* form {
-    display: block;
-    text-align: left;
-    padding-left: 30px;
-    margin-top: 60px;
-}  */
-
-
-
-/* #submit {
-    display: grid;
-    align-items: right;
-    color: navy;
+#submit {
     background-color: transparent;
     border: none;
     font-size: 25px;
-    padding: 0;
-    cursor: pointer;
-    width: 0px;
-} */
+    padding: 10px;
+}
 
-/* #todos {
+#todos {
     margin-left: 35px;
     display: grid;
     grid-template-rows: auto;
     grid-gap: 20px;
     color: black;
-} */
+}
 
-/* li {
+li {
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: 490px 1fr;
+    grid-template-columns: 1fr 385px;
     grid-gap: 20px;
     padding: 15px;
-    color: darkslategrey;
+    color: black;
+    font-size: 30px;
     text-align: left;
     margin-bottom: 10px;
     margin-right: 15px;
     margin-left: 15px;
-} */
+}
 
-/* .fa-circle {
-    color: rgb(34, 197, 197);
+.fa-circle {
+    color: rgb(175, 176, 176);
     margin-left: 10px;
     color: slategrey;
     font-size: 25px;
     font-weight: 500;
-}
+} 
 
 .fa-times-circle {
-    color: rgb(34, 197, 197);
+    color:rgb(175, 176, 176);
     margin-left: 10px;
     font-size: 25px;
     font-weight: 500;
-} */
+} 
 
-/* .item {
-    position: relative;
-    padding: 20px;
+.far {
+    color:rgb(121, 121, 121);
 }
 
+button {
+    display: none;
+}
 
-@media only screen and (max-width: 600px) { */
+/* @media only screen and (min-width: 600px) { 
     
-    /* .wrap {
-        width: 150px;
-        margin-left: 145px;
-    } */
+    input {
+        position: absolute;
+        background-color: rgba(232, 229, 229, 0.92);
+    }
+
+    .item {
+        position: relative;
+        padding: 10px;
+    }
     
-    /* input {
-        width: 281px;
-        height: 70px;
-        margin-left: 140px;
-    }  */
+    .two {
+        position: absolute;
+        right: 0px;
+        left: 450px;
+        width: 300px;
+        height: 690px;
+        text-align: left;
+    }
 
-    /* .one {
-        width: 700px;
-    } */
+    h1 {
+        color: white;
+        font-family: 'Roboto', sans-serif;
+        font-size: 25px;
+    }
 
-/* }  */
+    .one {
+        position: absolute;
+        top: 25%;
+        left: 25px;
+    }
+
+    #todolist {
+        overflow: scroll;
+    }
+
+    form {
+        position: absolute;
+        bottom: 0px;
+    }
+
+}  */

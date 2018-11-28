@@ -43,19 +43,23 @@ function populateList(data) {
     // data.forEach((data) => {
     const listTag = $('<li>');
     const textDiv = $('<div>');
-    const button = $('<i class="far fa-circle">');//x for delete
+    const button = $('<i class="far fa-dot-circle">');//x for delete
     
     button.attr('data-status', data.todoStatus);
 
     listTag.append()
+
+    listTag.append(button);
+
     listTag.append(textDiv);
     // listTag.append(button);
 
     textDiv.addClass('textDiv');
     textDiv.text(data.todoItem);
-    listTag.append(button);
+    
    
     addUpdateListener(button);
+    
 
     button.addClass('delete');
     button.attr('data-id', data._id);
@@ -68,7 +72,7 @@ function toggleCheckbox(element) {
     console.log('icon toggle function working');
     if ($(element).hasClass('far fa-circle')) { // not completed box
         $(element).removeClass('far fa-circle');//not completed box
-        $(element).addClass('far fa-times-circle');//checked completed
+        $(element).addClass('far fa-dot-circle');//checked completed
     }
 }
 
@@ -91,6 +95,7 @@ function addUpdateListener(element) {
 
         $.post(`/api/todo/${id}`, updateTask)
         .then(function (data) {
+            console.log("Posted")
             socket.emit('update-todo', data);
         });
         
@@ -101,7 +106,7 @@ function addUpdateListener(element) {
 // socket.on('update-todo', function (data) {
 socket.on('emit-update', function (data) {
      console.log(data, "This is the updated todo being emitted from the backend")
-    getAllItems();
+    // getAllItems();
 });
 
 function getAllItems() {
@@ -115,7 +120,7 @@ function getAllItems() {
             const textDiv = $('<div>');
             // const button = $('<i class="far fa-times-circle">');//x for delete
             if (e.todoStatus == true) {
-                button = $('<i class="far fa-times-circle">');//checked completed
+                button = $('<i class="far fa-dot-circle">');//checked completed
             } 
             else {
                 button = $('<i class="far fa-circle not complete">');//unchecked not completed
@@ -125,12 +130,13 @@ function getAllItems() {
             button.attr('data-status', e.todoStatus);
 
             listTag.append();
+            listTag.append(button);
             listTag.append(textDiv);
 
             textDiv.addClass('textDiv');
             textDiv.text(e.todoItem);
 
-            listTag.append(button);
+            
             addUpdateListener(button);
 
             button.addClass('delete');
@@ -138,10 +144,8 @@ function getAllItems() {
 
             $('#addTasks').append(listTag);
         });
-        addDeleteListener();
-          
-      }
-        
+        addDeleteListener(); 
+      }  
     });
 }
 
